@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Painel do Comercial da Plano A — apresentação para a equipe de vendas: o que é cada número, de onde vem e o que fazer com ele."
+    />
+    <meta property="og:title" content="Painel do Comercial — Plano A" />
+    <meta property="og:description" content="Quem está esperando, agora. A parede da equipe de vendas explicada número a número." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#070a12" />
+    <title>Painel do Comercial — Plano A</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070A12'/%3E%3Crect x='12' y='16' width='40' height='26' rx='4' fill='none' stroke='%2335E3FF' stroke-width='4'/%3E%3Ccircle cx='32' cy='29' r='6' fill='%23FF7A1A'/%3E%3Cpath d='M24 50h16' stroke='%2335E3FF' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="bg" aria-hidden="true"></div>
+    <canvas id="fx" aria-hidden="true"></canvas>
+
+    <!-- ============ HUD ============ -->
+    <header class="hud hud--top">
+      <div class="brand">
+        <img src="assets/planoa.png" alt="Plano A" />
+        <span class="brand__sep" aria-hidden="true"></span>
+        <span class="brand__name">Painel do Comercial</span>
+        <span class="live" aria-label="Painel ao vivo"><i></i>ao vivo</span>
+      </div>
+      <div class="hud-right">
+        <span class="chapter-name" data-chapter-name>Abertura</span>
+        <button class="menu-btn" type="button" data-menu aria-label="Abrir índice da apresentação">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="deck" class="deck" aria-live="polite">
+      <!-- ===== 01 · CAPA ===== -->
+      <section
+        class="slide slide--cover"
+        data-title="Capa"
+        data-chapter="Abertura"
+        data-fx="wall"
+        data-fx-scale="1.05"
+        data-fx-off="0.4"
+        data-notes="Cauê abre. Frase-âncora: a partir de hoje ninguém espera sem que a parede saiba. Diga que a apresentação tem cinco blocos e que no fim a gente fecha os combinados com o time. Não leia o slide."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="glow glow--laranja" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <div class="cover-top" data-r>
+            <img src="assets/planoa.png" alt="Plano A" />
+            <span>Equipe comercial · 16 de setembro de 2026</span>
+          </div>
+          <h1 class="display display--xl" data-split>Painel do <em>Comercial.</em></h1>
+          <p class="cover-sub" data-r>
+            Quem está esperando, agora. Quem está com quem. O que aconteceu no dia.
+            <span class="c-ciano">Numa parede só, ao vivo.</span>
+          </p>
+          <div class="placar">
+            <div class="placar__item" data-r><span class="placar__val c-ciano" data-count="5" data-fmt="int">0</span><span class="placar__lbl">segundos · ritmo da fila</span></div>
+            <div class="placar__item" data-r><span class="placar__val" data-count="8" data-fmt="int">0</span><span class="placar__lbl">telas</span></div>
+            <div class="placar__item" data-r><span class="placar__val" data-count="2" data-fmt="int">0</span><span class="placar__lbl">sistemas · DNIA + CRM</span></div>
+            <div class="placar__item" data-r><span class="placar__val c-laranja" data-count="1" data-fmt="int">0</span><span class="placar__lbl">régua para todos</span></div>
+          </div>
+          <div class="cover-meta" data-r>
+            <span>apresentam <b>Cauê Lima</b> e <b>João</b></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Administradora Plano A</span>
+          </div>
+          <p class="hint" data-r>← → navegar &nbsp;·&nbsp; Esc índice &nbsp;·&nbsp; P roteiro</p>
+        </div>
+      </section>
+
+      <!-- ===== 02 · AGENDA ===== -->
+      <section
+        class="slide slide--light"
+        data-title="Agenda"
+        data-chapter="Abertura"
+        data-fx="wall"
+        data-fx-dim="1"
+        data-fx-scale="0.8"
+        data-fx-off="0.5"
+        data-notes="Contrato da conversa: cinco blocos, uns vinte minutos, perguntas a qualquer hora. Se alguém pedir para ver a parede de verdade, abra o painel numa aba ao lado — o deck é o mapa, o painel é o território."
+      >
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Agenda</p>
+          <h2 class="display" data-split>Cinco blocos. <em>Vinte minutos.</em></h2>
+          <ol class="agenda">
+            <li class="agenda__item" data-r data-goto="3"><span class="agenda__num">01</span><b>Por que existe</b><span>O que acontecia sem a parede e a frase que a resume</span></li>
+            <li class="agenda__item" data-r data-goto="6"><span class="agenda__num">02</span><b>De onde vêm os números</b><span>Duas fontes, três relógios e o selo de frescor</span></li>
+            <li class="agenda__item" data-r data-goto="10"><span class="agenda__num">03</span><b>A tela da parede</b><span>Os 12 números, as faixas de alarme e as listas</span></li>
+            <li class="agenda__item" data-r data-goto="14"><span class="agenda__num">04</span><b>As abas</b><span>CRM, DNIA, Vendedores, Funil, Follow-up, Qualidade, Resultados</span></li>
+            <li class="agenda__item" data-r data-goto="24"><span class="agenda__num">05</span><b>Como vamos usar</b><span>Os combinados, a conta da espera e o acesso</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== 03 · DIVISOR 01 ===== -->
+      <section
+        class="slide slide--chapter"
+        data-title="Capítulo 01 · Por que existe"
+        data-chapter="Por que existe"
+        data-fx="queue"
+        data-notes="Transição curta. Primeiro o retrato, depois a solução."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <span class="chapter__num">01</span>
+          <div>
+            <h2 class="chapter__title" data-split>Por que existe</h2>
+            <p class="chapter__desc" data-r>O que a régua mediu na primeira semana ligada — e a frase que resume o painel inteiro.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 04 · O RETRATO ===== -->
+      <section
+        class="slide"
+        data-title="O que a régua mediu"
+        data-chapter="Por que existe"
+        data-fx="queue"
+        data-fx-scale="0.9"
+        data-fx-off="0.44"
+        data-notes="Cauê. Não é slide de culpa, é slide de intervalo: a IA responde em 19 segundos e a primeira resposta de gente leva 42 minutos na mediana — e 6h43 nos casos demorados. Nenhuma dessas conversas estava no alvo de 5 minutos. No CRM, 918 leads vivos e 813 parados há mais de uma semana. Peça: alguém sabia desses números antes da parede? Esse é o ponto."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="glow glow--vermelho" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Últimos 7 dias · régua do painel · 16/09</p>
+          <h2 class="display" data-split>A IA responde em segundos. <em>A gente, em horas.</em></h2>
+          <div class="cards cards--4">
+            <article class="card card--ok" data-r>
+              <span class="card__k">IA · resposta típica</span>
+              <span class="big c-verde"><span data-count="19" data-fmt="int">0</span><small> s</small></span>
+              <p>Toda conversa começa com a IA. Ela responde 92% do que chega, dia e noite.</p>
+            </article>
+            <article class="card card--alerta" data-r>
+              <span class="card__k">1ª resposta humana · mediana</span>
+              <span class="big c-vermelho"><span data-count="42" data-fmt="int">0</span><small> min</small></span>
+              <p>Casos demorados (p90): <b>6h 43min</b>. Medido em 37 conversas em que o cliente perguntou primeiro.</p>
+            </article>
+            <article class="card card--alerta" data-r>
+              <span class="card__k">dentro do alvo de 5 min</span>
+              <span class="big c-vermelho"><span data-count="0" data-fmt="pct">0</span></span>
+              <p>Nenhuma primeira resposta humana da semana coube nos 5 minutos combinados.</p>
+            </article>
+            <article class="card" data-r>
+              <span class="card__k">CRM · leads vivos</span>
+              <span class="big"><span data-count="918" data-fmt="int">0</span></span>
+              <p><b class="c-amarelo">813</b> sem movimentação há 7 dias ou mais. 16 retornos atrasados.</p>
+            </article>
+          </div>
+          <p class="note" data-r>Números reais lidos pelo painel na manhã de 16/09. A IA conta como resposta na taxa de respondidas; não conta como vendedor.</p>
+        </div>
+      </section>
+
+      <!-- ===== 05 · A FRASE ===== -->
+      <section
+        class="slide"
+        data-title="A frase do painel"
+        data-chapter="Por que existe"
+        data-fx="queue"
+        data-fx-scale="1.1"
+        data-notes="João. A parede existe para uma frase: ninguém espera sem que a parede saiba. Três consequências: quem espera aparece em segundos; todo número diz de onde veio; quando a fonte para, a tela avisa. O resto da apresentação é só detalhar isso."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="glow glow--ciano" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Uma frase</p>
+          <h2 class="display display--xl" data-split>Ninguém espera <em>sem que a parede saiba.</em></h2>
+          <ul class="rules">
+            <li data-r>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+              <span><b>Quem espera aparece em segundos.</b> A fila do WhatsApp é lida a cada 5 s. Cliente esperando vira número vermelho, cronômetro e nome.</span>
+            </li>
+            <li data-r>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 10h18" /><path d="M9 4v16" /></svg>
+              <span><b>Todo número diz de onde veio.</b> Etiqueta <span class="tag tag--crm">CRM</span> ou <span class="tag tag--dnia">DNIA</span> em cada um. Um 12 sem origem vira discussão em vez de decisão.</span>
+            </li>
+            <li data-r>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6Z" /></svg>
+              <span><b>Número velho nunca com cara de vivo.</b> Se uma fonte para de responder, a tela avisa e apaga. Zero aparece só quando é zero.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== 06 · DIVISOR 02 ===== -->
+      <section
+        class="slide slide--chapter"
+        data-title="Capítulo 02 · De onde vêm os números"
+        data-chapter="De onde vêm os números"
+        data-fx="wall"
+        data-notes="Transição. Este bloco é o mais técnico; vale a pena porque depois disso ninguém discute número, discute ação."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <span class="chapter__num">02</span>
+          <div>
+            <h2 class="chapter__title" data-split>De onde vêm os números</h2>
+            <p class="chapter__desc" data-r>Duas fontes, uma régua e um selo de frescor em cada tela.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 07 · DUAS FONTES ===== -->
+      <section
+        class="slide slide--light"
+        data-title="Duas fontes e uma régua"
+        data-chapter="De onde vêm os números"
+        data-fx="wall"
+        data-fx-dim="1"
+        data-fx-scale="0.8"
+        data-fx-off="-0.55"
+        data-notes="Cauê. O DNIA é onde o cliente fala: WhatsApp, IA, repasse. O CRM redeCORR é onde o lead vira negócio: etapa, tarefa, proposta, venda, meta. O painel só lê os dois, nunca escreve. A régua do painel mede a espera do jeito que a gente combinou — e é a mesma régua para todo mundo."
+      >
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>As fontes</p>
+          <h2 class="display" data-split>Dois sistemas falam. <em>Uma régua mede.</em></h2>
+          <div class="cards cards--3">
+            <article class="card" data-r>
+              <img src="assets/dnia.png" alt="DNIA Sales" style="height: 1.1rem; width: auto" />
+              <h3>DNIA Sales <span class="tag tag--dnia">DNIA</span></h3>
+              <p>Onde o cliente fala. Conversas do WhatsApp, a IA que atende primeiro, o repasse para o vendedor, o status de cada conversa na plataforma, anúncio de origem e satisfação.</p>
+            </article>
+            <article class="card" data-r>
+              <img src="assets/redecorr.png" alt="redeCORR" style="height: 1.1rem; width: auto; filter: invert(1)" />
+              <h3>CRM redeCORR <span class="tag tag--crm">CRM</span></h3>
+              <p>Onde o lead vira negócio. Leads criados, etapa no funil, tarefas de retorno, cotações e propostas, vendas confirmadas, produção e a meta do mês.</p>
+            </article>
+            <article class="card" data-r>
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18" /><path d="M6 8v8" /><path d="M10 10v4" /><path d="M14 8v8" /><path d="M18 10v4" /></svg>
+              <h3>Régua do painel <span class="tag tag--painel">painel</span></h3>
+              <p>A espera medida pela nossa regra, conversa a conversa: quanto tempo o cliente ficou sem resposta, quem respondeu, se foi gente ou IA, se coube no alvo.</p>
+            </article>
+          </div>
+          <p class="note" data-r>O painel só lê. Ele não muda nada no DNIA nem no CRM — quem atende continua atendendo onde sempre atendeu.</p>
+        </div>
+      </section>
+
+      <!-- ===== 08 · OS TRÊS RELÓGIOS ===== -->
+      <section
+        class="slide"
+        data-title="Os três relógios"
+        data-chapter="De onde vêm os números"
+        data-fx="clock"
+        data-fx-scale="0.6"
+        data-fx-off="0.78"
+        data-notes="Cauê. A parede conta três tempos e é importante saber qual é qual. Aguardando resposta: cliente mandou mensagem e ninguém respondeu, nem a IA. Esperando vendedor: a IA chamou um de nós e ninguém pegou. Primeira resposta humana: do momento em que o cliente perguntou até uma pessoa responder — é esse que tem alvo de 5 minutos. Desde hoje, ok, obrigado e joinha depois da resposta não abrem relógio."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>A régua</p>
+          <h2 class="display" data-split>Três relógios, <em>um alvo.</em></h2>
+          <div class="clocks">
+            <article class="clock" data-r>
+              <span class="clock__t c-amarelo">aguardando resposta</span>
+              <h3>Ninguém respondeu — nem a IA</h3>
+              <p>Conta da última mensagem do cliente até qualquer resposta nossa, inclusive da IA. Passou do combinado da fila, vira <b>fora do prazo</b> na faixa vermelha.</p>
+            </article>
+            <article class="clock" data-r>
+              <span class="clock__t c-vermelho">esperando vendedor</span>
+              <h3>A IA chamou, ninguém pegou</h3>
+              <p>A IA repassou a conversa para uma pessoa e a pessoa ainda não respondeu. É o alarme mais importante da parede: o cliente já foi prometido a alguém.</p>
+            </article>
+            <article class="clock" data-r>
+              <span class="clock__t c-verde">1ª resposta humana</span>
+              <h3>Do cliente perguntar até gente responder</h3>
+              <p>É o tempo que tem alvo: <b>5 minutos</b> no expediente. A IA não zera esse relógio. Aparece por vendedor, por dia e por período.</p>
+            </article>
+          </div>
+          <ul class="rules" style="margin-top: 1.3rem">
+            <li data-r><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg><span><b>Só gente zera o relógio humano.</b> Resposta da IA mantém o cliente ocupado, não atendido. Mensagem apagada não conta.</span></li>
+            <li data-r><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg><span><b>Cortesia não abre relógio.</b> Um “ok”, “obrigado” ou joinha depois da nossa resposta fecha o assunto, não abre pergunta. Áudio e imagem contam — podem ser pergunta.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== 09 · FRESCOR ===== -->
+      <section
+        class="slide"
+        data-title="Selo de frescor"
+        data-chapter="De onde vêm os números"
+        data-fx="wall"
+        data-fx-scale="0.9"
+        data-fx-off="-0.42"
+        data-notes="Cauê. Todo cabeçalho tem dois selos: DNIA há tantos segundos, CRM há tantos segundos. Se uma fonte passa de 5 minutos sem confirmar, a faixa amarela aparece e a tela apaga um pouco. Ritmos: a fila é lida a cada 5 s; os indicadores das abas a cada minuto; o CRM permite uma leitura por minuto e é isso que a gente faz."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="glow glow--ciano" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Frescor</p>
+          <h2 class="display" data-split>Todo número diz <em>há quanto tempo é verdade.</em></h2>
+          <div class="cards cards--3">
+            <article class="card card--ciano" data-r>
+              <span class="card__k">a cada 5 segundos</span>
+              <span class="big c-ciano">fila</span>
+              <p>Quem está esperando, há quanto tempo, com quem. É o que faz a parede parecer viva — porque está.</p>
+            </article>
+            <article class="card" data-r>
+              <span class="card__k">a cada minuto</span>
+              <span class="big">abas</span>
+              <p>Os indicadores de cada aba (CRM e DNIA) se renovam de minuto em minuto. O CRM permite uma leitura por minuto; a tela do CRM pede a cada 15 s e recebe o novo assim que ele existe.</p>
+            </article>
+            <article class="card card--alerta" data-r>
+              <span class="card__k">passou de 5 min sem confirmar</span>
+              <span class="big c-amarelo">aviso</span>
+              <p>Faixa amarela no topo, tela apagada, selo da fonte em alerta. Número congelado com cara de vivo é o defeito que a parede existe para não cometer.</p>
+            </article>
+          </div>
+          <p class="note" data-r>No cabeçalho de toda tela: <span class="mono c-verde">✓ DNIA há 14s</span> · <span class="mono c-verde">✓ CRM há 21s</span>. Se aparecer amarelo, desconfie do número e avise o Cauê.</p>
+        </div>
+      </section>
+
+      <!-- ===== 10 · DIVISOR 03 ===== -->
+      <section
+        class="slide slide--chapter"
+        data-title="Capítulo 03 · A tela da parede"
+        data-chapter="A tela da parede"
+        data-fx="wall"
+        data-fx-scale="1.1"
+        data-notes="Transição. A partir daqui é print real do painel, capturado hoje de manhã. Nomes de clientes foram trocados por nomes fictícios para a apresentação."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <span class="chapter__num">03</span>
+          <div>
+            <h2 class="chapter__title" data-split>A tela da parede</h2>
+            <p class="chapter__desc" data-r>A aba Ao vivo: 12 números no topo, as faixas de alarme e a linha de cada vendedor.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 11 · AO VIVO · OS 12 NÚMEROS ===== -->
+      <section
+        class="slide"
+        data-title="Ao vivo · os 12 números"
+        data-chapter="A tela da parede"
+        data-fx="wall"
+        data-fx-dim="1"
+        data-notes="Cauê. Passe o mouse na legenda para acender o pino. Os 12 números do topo são a parede inteira num olhar: os seis do meio são DNIA e são o AGORA; leads, follow-ups, propostas, vendas e meta são CRM e são o DIA. Cada número abre a lista que o explica."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Ao vivo · /tv/comercial</p>
+          <h2 class="display display--sm" data-split>Doze números. <em>Cada um abre uma lista.</em></h2>
+          <div class="tv-wrap tv-wrap--stack">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>plano-a-painel.vercel.app/tv/comercial</span><span class="live"><i></i>ao vivo</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/aovivo.webp" alt="Aba Ao vivo do painel do comercial" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 4.55%; top: 14.36%">1</span>
+                  <span class="pin pin--a" data-pin="2" style="left: 12.81%; top: 14.36%">2</span>
+                  <span class="pin pin--v" data-pin="3" style="left: 21.08%; top: 14.36%">3</span>
+                  <span class="pin pin--a" data-pin="4" style="left: 29.34%; top: 14.36%">4</span>
+                  <span class="pin pin--v" data-pin="5" style="left: 37.6%; top: 14.36%">5</span>
+                  <span class="pin pin--v" data-pin="6" style="left: 45.87%; top: 14.36%">6</span>
+                  <span class="pin pin--g" data-pin="7" style="left: 54.13%; top: 14.36%">7</span>
+                  <span class="pin pin--g" data-pin="8" style="left: 62.4%; top: 14.36%">8</span>
+                  <span class="pin" data-pin="9" style="left: 70.66%; top: 14.36%">9</span>
+                  <span class="pin" data-pin="10" style="left: 78.92%; top: 14.36%">10</span>
+                  <span class="pin" data-pin="11" style="left: 87.19%; top: 14.36%">11</span>
+                  <span class="pin" data-pin="12" style="left: 95.45%; top: 14.36%">12</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Leads hoje <span class="tag tag--crm">CRM</span></b><p>Leads criados hoje no CRM. Embaixo, quantas conversas novas chegaram no WhatsApp.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--a">2</span><div><b>Sem responsável <span class="tag tag--dnia">DNIA</span></b><p>Conversas abertas sem vendedor designado. Abre a lista para distribuir ou assumir.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--v">3</span><div><b>Esperando vendedor <span class="tag tag--dnia">DNIA</span></b><p>A IA repassou e ninguém pegou. O alarme principal: pisca e liga a sirene.</p></div></li>
+              <li data-pin="4"><span class="legend__n legend__n--a">4</span><div><b>Aguardando resposta <span class="tag tag--dnia">DNIA</span></b><p>Clientes com mensagem pendente, sem resposta nenhuma — nem da IA.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--v">5</span><div><b>Maior espera</b><p>O cliente que espera há mais tempo, com nome e cronômetro. Clique abre a conversa.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--v">6</span><div><b>Fora do prazo <span class="tag tag--dnia">DNIA</span></b><p>Esperas acima da meta da fila. Cada um vira um cartão na faixa vermelha.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--g">7</span><div><b>Em andamento</b><p>Conversas abertas agora: quantas com a IA, quantas com vendedor.</p></div></li>
+              <li data-pin="8"><span class="legend__n legend__n--g">8</span><div><b>Vendedores</b><p>Quantos têm conversa aberta e quantos estão em dia (ninguém esperando por eles).</p></div></li>
+              <li data-pin="9"><span class="legend__n">9</span><div><b>Follow-ups atrasados <span class="tag tag--crm">CRM</span></b><p>Tarefas de retorno vencidas no CRM. Embaixo, quantas estão marcadas para hoje.</p></div></li>
+              <li data-pin="10"><span class="legend__n">10</span><div><b>Propostas hoje <span class="tag tag--crm">CRM</span></b><p>Propostas enviadas hoje pelo CRM.</p></div></li>
+              <li data-pin="11"><span class="legend__n">11</span><div><b>Vendas hoje <span class="tag tag--crm">CRM</span></b><p>Vendas confirmadas hoje e o valor. Fica verde quando existe pelo menos uma.</p></div></li>
+              <li data-pin="12"><span class="legend__n">12</span><div><b>Meta do mês <span class="tag tag--crm">CRM</span></b><p>Atingimento da meta cadastrada no CRM, quanto falta e o ritmo por dia útil. Hoje: sem meta cadastrada.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 12 · AO VIVO · FAIXAS E ESTADOS ===== -->
+      <section
+        class="slide"
+        data-title="Ao vivo · faixas, estados e vendedores"
+        data-chapter="A tela da parede"
+        data-fx="queue"
+        data-fx-dim="1"
+        data-notes="João. Abaixo dos números vem o que exige ação: a faixa vermelha com os piores casos em corpo grande e horas de expediente sem resposta; as largadas (IA desligada, ninguém assumiu); a tira onde está a pendência; e a linha de cada vendedor com o anel de estado. Quando alguém responde, a linha acende em verde."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Ao vivo · o que exige ação</p>
+          <h2 class="display display--sm" data-split>Faixas de alarme, <em>onde está a pendência</em> e cada vendedor.</h2>
+          <div class="tv-wrap">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial · leitura de 5 s</span><span class="live"><i></i>ao vivo</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/aovivo.webp" alt="Aba Ao vivo: faixas de alarme, estados e vendedores" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 9%; top: 27%">1</span>
+                  <span class="pin pin--v" data-pin="2" style="left: 24%; top: 24%">2</span>
+                  <span class="pin pin--a" data-pin="3" style="left: 22%; top: 41%">3</span>
+                  <span class="pin" data-pin="4" style="left: 33.9%; top: 50%">4</span>
+                  <span class="pin pin--g" data-pin="5" style="left: 27%; top: 59.5%">5</span>
+                  <span class="pin" data-pin="6" style="left: 9%; top: 93%">6</span>
+                  <span class="pin" data-pin="7" style="left: 24%; top: 82%">7</span>
+                  <span class="pin" data-pin="8" style="left: 40%; top: 97%">8</span>
+                  <span class="pin pin--v" data-pin="9" style="left: 92%; top: 97%">9</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Coluna do CRM</b><p>Meta do mês, funil em aberto (todos os leads vivos por etapa) e leads de hoje por origem. Contexto, não alarme.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--v">2</span><div><b>Precisa de ação agora</b><p>Os três piores casos em corpo grande, com o tempo de relógio e as horas de expediente sem resposta. Os demais viram cartões vermelhos. Ação: distribuir ou assumir.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--a">3</span><div><b>Largadas</b><p>A IA foi desligada na conversa e ninguém assumiu. Lead frio: a janela do WhatsApp fechou — é para <b>ligar</b>, não esperar mensagem.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Onde está a pendência</b><p>Oito estados: aguardando distribuição, IA repassou e ninguém pegou, aguardando vendedor, com a IA, aguardando cliente, largadas, retorno agendado hoje, concluídas hoje. Cada um abre a lista.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--g">5</span><div><b>Linha de cada vendedor</b><p>Anel do avatar = estado (verde em dia, amarelo aviso, vermelho estouro). Quantas abertas, há quanto tempo respondeu. Quem tem cliente esperando sobe com o cronômetro do pior caso.</p></div></li>
+              <li data-pin="6"><span class="legend__n">6</span><div><b>IA agora</b><p>Quantas conversas a IA conduz neste momento, quantas estão com vendedor e há quanto tempo a IA respondeu pela última vez.</p></div></li>
+              <li data-pin="7"><span class="legend__n">7</span><div><b>Com a IA agora</b><p>As conversas mais recentes que a IA está conduzindo, com o tempo desde a última resposta dela. Clique abre a conversa.</p></div></li>
+              <li data-pin="8"><span class="legend__n">8</span><div><b>Rodapé do dia</b><p>Atendimentos de hoje, % respondidos, sem resposta, resposta típica (IA conta) e casos demorados.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--v">9</span><div><b>Tendência</b><p>Estouros por hora nas últimas 6 horas: piorando ou melhorando.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 13 · A LISTA ===== -->
+      <section
+        class="slide"
+        data-title="Cada número abre uma lista"
+        data-chapter="A tela da parede"
+        data-fx="queue"
+        data-fx-dim="1"
+        data-notes="João. Regra da parede: nenhum número é decorativo. Clicou, abre a lista com responsável, tempo de espera e a próxima ação. Clicou na linha, abre a conversa inteira com a espera medida entre a pergunta e a resposta. É assim que o gestor decide quem pega o quê sem sair da TV."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Ao vivo · a lista</p>
+          <h2 class="display display--sm" data-split>Clicou no número, <em>abre quem, há quanto tempo e o que fazer.</em></h2>
+          <div class="tv-wrap">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial · lista “aguardando resposta”</span><span class="live"><i></i>ao vivo</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/lista.webp" alt="Lista de clientes aguardando resposta aberta sobre a aba Ao vivo" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 41.5%; top: 6%">1</span>
+                  <span class="pin" data-pin="2" style="left: 28%; top: 13%">2</span>
+                  <span class="pin pin--a" data-pin="3" style="left: 44%; top: 13%">3</span>
+                  <span class="pin pin--v" data-pin="4" style="left: 53%; top: 13%">4</span>
+                  <span class="pin" data-pin="5" style="left: 57.5%; top: 13%">5</span>
+                  <span class="pin pin--g" data-pin="6" style="left: 63.5%; top: 13%">6</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Título e contagem</b><p>Qual número foi clicado e quantos clientes estão nele agora. Esc fecha.</p></div></li>
+              <li data-pin="2"><span class="legend__n">2</span><div><b>Cliente</b><p>Nome como está no WhatsApp (telefone mascarado na TV). Clique abre a conversa inteira.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--a">3</span><div><b>Responsável</b><p>Quem está com a conversa — ou “sem responsável” quando ninguém assumiu.</p></div></li>
+              <li data-pin="4"><span class="legend__n legend__n--v">4</span><div><b>Espera</b><p>Há quanto tempo o cliente espera, em relógio de parede. Vermelho quando passou do combinado.</p></div></li>
+              <li data-pin="5"><span class="legend__n">5</span><div><b>Desde quando</b><p>“desde ontem”, “anteontem” ou a data: para não confundir 20 horas com 20 minutos.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--g">6</span><div><b>Próxima ação</b><p>O que a lista pede: responder agora, distribuir ou assumir, ligar para o cliente ou encerrar.</p></div></li>
+            </ol>
+          </div>
+          <p class="note" data-r>Dentro da conversa: bolhas do cliente, da IA e do vendedor, e a espera medida entre cada pergunta e a resposta humana. Sirene: o botão no canto toca enquanto houver cliente esperando vendedor ou fora do prazo.</p>
+        </div>
+      </section>
+
+      <!-- ===== 14 · DIVISOR 04 ===== -->
+      <section
+        class="slide slide--chapter"
+        data-title="Capítulo 04 · As abas"
+        data-chapter="As abas"
+        data-fx="funnel"
+        data-notes="Transição. Sete abas além da parede: duas por sistema (CRM e DNIA, sem mistura) e cinco que cruzam os dois. São para o computador do gestor, não para a TV."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <span class="chapter__num">04</span>
+          <div>
+            <h2 class="chapter__title" data-split>As abas</h2>
+            <p class="chapter__desc" data-r>CRM redeCORR · DNIA Sales · Vendedores · Funil · Follow-up · Qualidade · Resultados. Cada aba responde uma pergunta.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 15 · CRM · PERÍODO ===== -->
+      <section
+        class="slide"
+        data-title="CRM redeCORR · o período"
+        data-chapter="As abas"
+        data-fx="funnel"
+        data-fx-dim="1"
+        data-notes="Cauê. Só o CRM, sem mistura. A pergunta da aba é: o que o CRM diz? A primeira faixa é o período escolhido (hoje, 7 dias, 30 dias, mês) com a variação contra o período anterior. Abre em hoje e lê o CRM a cada minuto."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>CRM redeCORR · /tv/comercial/redecorr · “O que o CRM diz?”</p>
+          <h2 class="display display--sm" data-split>O período: <em>o que entrou, o que fechou, o que perdeu.</em></h2>
+          <div class="tv-wrap">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/redecorr · hoje</span><span class="live"><i></i>1 leitura/min</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/redecorr.webp" alt="Aba CRM redeCORR do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 17.62%">1</span>
+                  <span class="pin pin--g" data-pin="2" style="left: 19.01%; top: 17.62%">2</span>
+                  <span class="pin pin--v" data-pin="3" style="left: 31.41%; top: 17.62%">3</span>
+                  <span class="pin" data-pin="4" style="left: 43.8%; top: 17.62%">4</span>
+                  <span class="pin pin--g" data-pin="5" style="left: 56.2%; top: 17.62%">5</span>
+                  <span class="pin" data-pin="6" style="left: 68.59%; top: 17.62%">6</span>
+                  <span class="pin" data-pin="7" style="left: 80.99%; top: 17.62%">7</span>
+                  <span class="pin pin--a" data-pin="8" style="left: 93.39%; top: 17.62%">8</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Leads criados</b><p>Leads que entraram no CRM no período, com a variação contra o período anterior.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--g">2</span><div><b>Vendas</b><p>Leads convertidos (ganhos) no período.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--v">3</span><div><b>Perdidos</b><p>Leads marcados como perdidos. Aqui, cair é bom.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Conversão</b><p>Convertidos ÷ criados no período.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--g">5</span><div><b>Produção</b><p>Valor das vendas confirmadas no período.</p></div></li>
+              <li data-pin="6"><span class="legend__n">6</span><div><b>Ticket médio</b><p>Produção ÷ vendas. Valor estimado do lead quando ainda não fechou.</p></div></li>
+              <li data-pin="7"><span class="legend__n">7</span><div><b>Ciclo de venda</b><p>Dias entre o lead ser criado e a venda ser confirmada, em média.</p></div></li>
+              <li data-pin="8"><span class="legend__n legend__n--a">8</span><div><b>Meta do mês</b><p>Sempre do mês corrente, qualquer que seja o período. Hoje: 3 vendas no mês e <b>nenhuma meta cadastrada</b> no CRM — é o primeiro combinado.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 16 · CRM · FOTO DE AGORA ===== -->
+      <section
+        class="slide"
+        data-title="CRM redeCORR · a foto de agora"
+        data-chapter="As abas"
+        data-fx="funnel"
+        data-fx-dim="1"
+        data-notes="Cauê. A segunda faixa não depende de período: é a foto do CRM agora. Leads vivos, quantos sem responsável, quantos parados há 7 dias, valor em aberto, quentes/mornos/frios, retornos para hoje e atrasados, propostas. Embaixo, a carteira inteira por etapa, o gráfico dos últimos 7 dias, a tabela de corretores, e o cartão Movimento no CRM, que narra o que mudou desde que a tela abriu — mais 1 lead, mais 1 venda, de quem."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>CRM redeCORR · a foto de agora</p>
+          <h2 class="display display--sm" data-split>A foto de agora <em>e o que acabou de mudar.</em></h2>
+          <div class="tv-wrap tv-wrap--stack">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/redecorr · foto do presente</span><span class="live"><i></i>1 leitura/min</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/redecorr.webp" alt="Aba CRM redeCORR: foto de agora e cartões" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 27.16%">1</span>
+                  <span class="pin pin--v" data-pin="2" style="left: 19.01%; top: 27.16%">2</span>
+                  <span class="pin pin--a" data-pin="3" style="left: 31.41%; top: 27.16%">3</span>
+                  <span class="pin" data-pin="4" style="left: 43.8%; top: 27.16%">4</span>
+                  <span class="pin" data-pin="5" style="left: 56.2%; top: 27.16%">5</span>
+                  <span class="pin pin--a" data-pin="6" style="left: 68.59%; top: 27.16%">6</span>
+                  <span class="pin pin--v" data-pin="7" style="left: 80.99%; top: 27.16%">7</span>
+                  <span class="pin" data-pin="8" style="left: 93.39%; top: 27.16%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 9%; top: 37%">9</span>
+                  <span class="pin pin--g" data-pin="10" style="left: 40%; top: 37%">10</span>
+                  <span class="pin pin--g" data-pin="11" style="left: 80%; top: 37%">11</span>
+                  <span class="pin pin--g" data-pin="12" style="left: 9%; top: 73%">12</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Leads vivos</b><p>Todos os leads em aberto no CRM, agora. Não depende do período.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--v">2</span><div><b>Sem responsável</b><p>Leads vivos sem corretor. Deveria ser sempre zero.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--a">3</span><div><b>Parados há 7 dias</b><p>Leads vivos sem nenhuma movimentação na última semana. Hoje: 813 de 918.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Valor em aberto</b><p>Soma do valor estimado dos leads vivos.</p></div></li>
+              <li data-pin="5"><span class="legend__n">5</span><div><b>Quentes · mornos · frios</b><p>Temperatura dos leads vivos, como está marcada no CRM.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--a">6</span><div><b>Retornos para hoje</b><p>Tarefas de retorno com vencimento hoje.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--v">7</span><div><b>Retornos atrasados</b><p>Tarefas de retorno vencidas e não concluídas. Pisca quando existe alguma.</p></div></li>
+              <li data-pin="8"><span class="legend__n">8</span><div><b>Propostas enviadas</b><p>No período: enviadas, aceitas e recusadas.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>Carteira por etapa</b><p>Todos os leads vivos por etapa do funil e há quantos dias estão parados nela.</p></div></li>
+              <li data-pin="10"><span class="legend__n legend__n--g">10</span><div><b>Corretores</b><p>Por pessoa: leads, vendas, perdidos, carteira, parada há 7 dias e tarefas atrasadas (linha vermelha quando há atraso).</p></div></li>
+              <li data-pin="11"><span class="legend__n legend__n--g">11</span><div><b>Movimento no CRM</b><p>O que mudou entre uma leitura e outra: “+1 venda · R$ 890 · Marielle”. O número que mexeu acende em azul.</p></div></li>
+              <li data-pin="12"><span class="legend__n legend__n--g">12</span><div><b>Leads, vendas e perdas por dia</b><p>Sempre os últimos 7 dias, mesmo com o período em “hoje”.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 17 · DNIA · AGORA ===== -->
+      <section
+        class="slide"
+        data-title="DNIA Sales · agora"
+        data-chapter="As abas"
+        data-fx="queue"
+        data-fx-dim="1"
+        data-notes="Cauê. Só o DNIA: o que o WhatsApp diz. A primeira faixa é agora, a cada 5 segundos, igual à parede. As faixas vermelhas de alarme também aparecem aqui. Tudo clicável."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>DNIA Sales · /tv/comercial/dnia · “O que o WhatsApp diz?”</p>
+          <h2 class="display display--sm" data-split>Agora, <em>a cada cinco segundos.</em></h2>
+          <div class="tv-wrap">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/dnia · hoje</span><span class="live"><i></i>ao vivo</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/dnia.webp" alt="Aba DNIA Sales do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 19.47%">1</span>
+                  <span class="pin pin--a" data-pin="2" style="left: 19.01%; top: 19.47%">2</span>
+                  <span class="pin pin--v" data-pin="3" style="left: 31.41%; top: 19.47%">3</span>
+                  <span class="pin pin--a" data-pin="4" style="left: 43.8%; top: 19.47%">4</span>
+                  <span class="pin pin--v" data-pin="5" style="left: 56.2%; top: 19.47%">5</span>
+                  <span class="pin pin--v" data-pin="6" style="left: 68.59%; top: 19.47%">6</span>
+                  <span class="pin pin--a" data-pin="7" style="left: 80.99%; top: 19.47%">7</span>
+                  <span class="pin pin--g" data-pin="8" style="left: 93.39%; top: 19.47%">8</span>
+                  <span class="pin pin--v" data-pin="9" style="left: 14%; top: 40%">9</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Abertas agora</b><p>Conversas em andamento: quantas com a IA, quantas com vendedor.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--a">2</span><div><b>Sem responsável</b><p>Abertas sem vendedor designado.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--v">3</span><div><b>Esperando vendedor</b><p>A IA repassou e ninguém pegou. Pisca.</p></div></li>
+              <li data-pin="4"><span class="legend__n legend__n--a">4</span><div><b>Aguardando resposta</b><p>Mensagem do cliente pendente, sem resposta de ninguém.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--v">5</span><div><b>Maior espera</b><p>Quem espera há mais tempo, com cronômetro. Clique abre a conversa.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--v">6</span><div><b>Fora do prazo</b><p>Acima da meta da fila.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--a">7</span><div><b>Largadas</b><p>IA desligada, ninguém assumiu. Para ligar.</p></div></li>
+              <li data-pin="8"><span class="legend__n legend__n--g">8</span><div><b>Vendedores com conversa</b><p>Quantos têm conversa aberta agora e quantos estão em dia.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--v">9</span><div><b>Faixas de alarme</b><p>As mesmas da parede: esperando vendedor, precisa de ação agora e largadas — com sirene.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 18 · DNIA · PERÍODO ===== -->
+      <section
+        class="slide"
+        data-title="DNIA Sales · o período e os cartões"
+        data-chapter="As abas"
+        data-fx="queue"
+        data-fx-dim="1"
+        data-notes="Cauê. A segunda faixa é o período pela régua do painel: novas, respondidas (IA conta), sem resposta nenhuma, resposta típica, primeira resposta humana, humano no prazo, repasses da IA e espera pelo humano. Embaixo: tabela de vendedores com o agora de 5 segundos, IA agora, status na plataforma, como a conversa termina, o gráfico por dia e os anúncios que trouxeram conversa."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>DNIA Sales · o período pela régua</p>
+          <h2 class="display display--sm" data-split>O período, <em>vendedor a vendedor.</em></h2>
+          <div class="tv-wrap tv-wrap--stack">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/dnia · régua do painel</span><span class="live"><i></i>ao vivo</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/dnia.webp" alt="Aba DNIA Sales: período e cartões" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 29.69%">1</span>
+                  <span class="pin pin--g" data-pin="2" style="left: 19.01%; top: 29.69%">2</span>
+                  <span class="pin pin--v" data-pin="3" style="left: 31.41%; top: 29.69%">3</span>
+                  <span class="pin" data-pin="4" style="left: 43.8%; top: 29.69%">4</span>
+                  <span class="pin pin--a" data-pin="5" style="left: 56.2%; top: 29.69%">5</span>
+                  <span class="pin pin--v" data-pin="6" style="left: 68.59%; top: 29.69%">6</span>
+                  <span class="pin" data-pin="7" style="left: 80.99%; top: 29.69%">7</span>
+                  <span class="pin" data-pin="8" style="left: 93.39%; top: 29.69%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 9%; top: 64%">9</span>
+                  <span class="pin pin--g" data-pin="10" style="left: 56%; top: 64%">10</span>
+                  <span class="pin pin--g" data-pin="11" style="left: 80%; top: 64%">11</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Novas no período</b><p>Conversas que começaram no período; embaixo, quantas se mexeram.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--g">2</span><div><b>Respondidas</b><p>% das conversas com alguma resposta. A IA conta.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--v">3</span><div><b>Sem resposta nenhuma</b><p>Cliente escreveu e ninguém — nem a IA — respondeu.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Resposta típica</b><p>Mediana até a primeira resposta, IA ou gente. p90 = casos demorados.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--a">5</span><div><b>1ª resposta humana</b><p>Mediana até uma pessoa responder. É o número do alvo.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--v">6</span><div><b>Humano no prazo</b><p>% das primeiras respostas humanas dentro do alvo de 5 min.</p></div></li>
+              <li data-pin="7"><span class="legend__n">7</span><div><b>Repasses da IA</b><p>Quantas vezes a IA chamou um vendedor; quantos pegaram; quantos ficaram sem responsável.</p></div></li>
+              <li data-pin="8"><span class="legend__n">8</span><div><b>Espera pelo humano</b><p>Do repasse até a resposta do vendedor: mediana e p90.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>Vendedores</b><p>Agora (de 5 em 5 s), chats, atendidos, 1ª humana, no prazo, repasses pegos e reação ao repasse. Quem tem cliente esperando sobe.</p></div></li>
+              <li data-pin="10"><span class="legend__n legend__n--g">10</span><div><b>IA agora · status · desfechos</b><p>O que a IA conduz, quantas conversas em cada status da plataforma e como as conversas terminam.</p></div></li>
+              <li data-pin="11"><span class="legend__n legend__n--g">11</span><div><b>Por dia · anúncios</b><p>Respondidas e sem resposta por dia; quais anúncios trouxeram conversa.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 19 · VENDEDORES ===== -->
+      <section
+        class="slide"
+        data-title="Vendedores"
+        data-chapter="As abas"
+        data-fx="wall"
+        data-fx-dim="1"
+        data-notes="João. Como está cada pessoa: uma linha por vendedor cruzando DNIA e CRM. Não é ranking de vergonha — é para cada um ver a própria régua. A coluna Agora é a de 5 segundos; as outras são do período escolhido."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Vendedores · /tv/comercial/vendedores · “Como está cada pessoa?”</p>
+          <h2 class="display display--sm" data-split>Uma linha por pessoa, <em>WhatsApp e CRM lado a lado.</em></h2>
+          <div class="tv-wrap">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/vendedores · hoje</span><span class="live"><i></i>ao vivo</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/vendedores.webp" alt="Aba Vendedores do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin pin--v" data-pin="1" style="left: 12.81%; top: 17.62%">1</span>
+                  <span class="pin pin--g" data-pin="2" style="left: 37.6%; top: 17.62%">2</span>
+                  <span class="pin" data-pin="3" style="left: 62.4%; top: 17.62%">3</span>
+                  <span class="pin" data-pin="4" style="left: 87.19%; top: 17.62%">4</span>
+                  <span class="pin pin--a" data-pin="5" style="left: 25.9%; top: 24.3%">5</span>
+                  <span class="pin" data-pin="6" style="left: 41.6%; top: 24.3%">6</span>
+                  <span class="pin pin--a" data-pin="7" style="left: 60.9%; top: 24.3%">7</span>
+                  <span class="pin" data-pin="8" style="left: 78%; top: 24.3%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 91%; top: 24.3%">9</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n legend__n--v">1</span><div><b>Com cliente esperando</b><p>Vendedores que têm pelo menos um cliente aguardando resposta agora.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--g">2</span><div><b>Em dia</b><p>Com conversa aberta e ninguém esperando.</p></div></li>
+              <li data-pin="3"><span class="legend__n">3</span><div><b>Sem conversa aberta · só no CRM</b><p>Quem não tem conversa no WhatsApp agora; e quem existe só no CRM com movimento no período.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Só no CRM</b><p>Corretores que aparecem apenas no CRM (com carteira ou movimento).</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--a">5</span><div><b>Agora</b><p>“N esperando · cronômetro” ou “em dia”. Lido a cada 5 s.</p></div></li>
+              <li data-pin="6"><span class="legend__n">6</span><div><b>Leads recebidos · atendidos · abertas</b><p>Leads do CRM no período, conversas atendidas pela régua e conversas abertas agora.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--a">7</span><div><b>1ª resposta humana · no prazo · reação</b><p>Mediana da primeira resposta, % no alvo de 5 min e tempo de reação quando a IA repassa.</p></div></li>
+              <li data-pin="8"><span class="legend__n">8</span><div><b>Follow-ups · propostas</b><p>Tarefas de retorno atrasadas e propostas enviadas no CRM.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>Vendas · conversão · meta</b><p>Vendas confirmadas, conversão e a meta individual cadastrada no CRM.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 20 · FUNIL ===== -->
+      <section
+        class="slide"
+        data-title="Funil"
+        data-chapter="As abas"
+        data-fx="funnel"
+        data-fx-dim="1"
+        data-notes="João. Onde as oportunidades param. Leads vivos por etapa com os dias parados em cada uma — hoje Recontactar e Qualificação são os maiores buracos. À direita, a ponte da IA para o vendedor: quantas conversas chegam a uma pessoa e quanto tempo levam."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Funil · /tv/comercial/funil · “Onde as oportunidades param?”</p>
+          <h2 class="display display--sm" data-split>Onde o lead <em>para de andar.</em></h2>
+          <div class="tv-wrap tv-wrap--stack">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/funil · este mês</span><span class="live"><i></i>1 leitura/min</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/funil.webp" alt="Aba Funil do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 17.62%">1</span>
+                  <span class="pin pin--g" data-pin="2" style="left: 19.01%; top: 17.62%">2</span>
+                  <span class="pin pin--v" data-pin="3" style="left: 31.41%; top: 17.62%">3</span>
+                  <span class="pin" data-pin="4" style="left: 50%; top: 17.62%">4</span>
+                  <span class="pin" data-pin="5" style="left: 68.59%; top: 17.62%">5</span>
+                  <span class="pin pin--a" data-pin="6" style="left: 87%; top: 17.62%">6</span>
+                  <span class="pin pin--g" data-pin="7" style="left: 9%; top: 28%">7</span>
+                  <span class="pin pin--g" data-pin="8" style="left: 47%; top: 28%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 47%; top: 45%">9</span>
+                  <span class="pin pin--g" data-pin="10" style="left: 78%; top: 28%">10</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Leads criados</b><p>Entradas no CRM no período.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--g">2</span><div><b>Convertidos</b><p>Viraram venda no período.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--v">3</span><div><b>Perdidos</b><p>Marcados como perdidos no período.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Conversão · perda</b><p>Convertidos ÷ criados e perdidos ÷ criados.</p></div></li>
+              <li data-pin="5"><span class="legend__n">5</span><div><b>Ciclo de venda</b><p>Média de dias da criação até a conversão.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--a">6</span><div><b>Valor em aberto · parados há 7 dias</b><p>Foto de agora: quanto está em jogo e quantos leads não se mexem há uma semana.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--g">7</span><div><b>Leads vivos por etapa</b><p>A carteira inteira, com os dias médios parados em cada etapa. Vermelho = sem resposta / perdido, verde = ganho.</p></div></li>
+              <li data-pin="8"><span class="legend__n legend__n--g">8</span><div><b>Por modalidade</b><p>Leads e vendas por modalidade de plano.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>Como a conversa termina no WhatsApp</b><p>Resolvido, cliente sumiu, sem resposta, outro motivo — pela régua.</p></div></li>
+              <li data-pin="10"><span class="legend__n legend__n--g">10</span><div><b>Da IA para o vendedor</b><p>Conversas, % que chegam a uma pessoa, repasses formais, espera pelo humano, repasses sem responsável e ainda sem resposta.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 21 · FOLLOW-UP ===== -->
+      <section
+        class="slide"
+        data-title="Follow-up"
+        data-chapter="As abas"
+        data-fx="clock"
+        data-fx-dim="1"
+        data-notes="João. O que está sem continuidade. É a aba do começo do dia: retornos para hoje, atrasados, leads sem responsável, negociações paradas. A tabela por vendedor mostra quem está devendo retorno. Hoje: 16 retornos atrasados e 813 negociações a revisar."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Follow-up · /tv/comercial/follow-up · “O que está sem continuidade?”</p>
+          <h2 class="display display--sm" data-split>O que ficou <em>sem próximo passo.</em></h2>
+          <div class="tv-wrap">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/follow-up · hoje</span><span class="live"><i></i>1 leitura/min</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/followup.webp" alt="Aba Follow-up do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin pin--a" data-pin="1" style="left: 6.61%; top: 18.31%">1</span>
+                  <span class="pin pin--v" data-pin="2" style="left: 19.01%; top: 18.31%">2</span>
+                  <span class="pin" data-pin="3" style="left: 31.41%; top: 18.31%">3</span>
+                  <span class="pin" data-pin="4" style="left: 50%; top: 18.31%">4</span>
+                  <span class="pin pin--a" data-pin="5" style="left: 68.59%; top: 18.31%">5</span>
+                  <span class="pin pin--v" data-pin="6" style="left: 80.99%; top: 18.31%">6</span>
+                  <span class="pin pin--v" data-pin="7" style="left: 93.39%; top: 18.31%">7</span>
+                  <span class="pin pin--g" data-pin="8" style="left: 9%; top: 30%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 63%; top: 30%">9</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n legend__n--a">1</span><div><b>Retornos para hoje</b><p>Tarefas de retorno do CRM com vencimento hoje.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--v">2</span><div><b>Retornos atrasados</b><p>Vencidas e não concluídas. É a primeira coisa a zerar de manhã.</p></div></li>
+              <li data-pin="3"><span class="legend__n">3</span><div><b>Tarefas abertas</b><p>Todas as tarefas em aberto no CRM.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Cumpridos no prazo · tempo até concluir</b><p>% das tarefas concluídas dentro do prazo e o tempo médio para concluir.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--a">5</span><div><b>Sem movimentação há 7 dias</b><p>Negociações vivas paradas há uma semana: a revisar.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--v">6</span><div><b>Leads sem responsável</b><p>No CRM, agora.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--v">7</span><div><b>Repasses da IA sem resposta</b><p>No WhatsApp: a IA chamou e ninguém respondeu ainda.</p></div></li>
+              <li data-pin="8"><span class="legend__n legend__n--g">8</span><div><b>Pendências por vendedor</b><p>Tarefas abertas, atrasadas, carteira e parada há 7 dias, pessoa a pessoa.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>O que está sem continuidade</b><p>O resumo cruzando CRM e DNIA: atrasados, sem responsável, parados, repasses sem resposta, retornos de hoje.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 22 · QUALIDADE ===== -->
+      <section
+        class="slide"
+        data-title="Qualidade"
+        data-chapter="As abas"
+        data-fx="clock"
+        data-fx-dim="1"
+        data-notes="Cauê. O atendimento está bom? É a aba da reunião semanal. Conversas do período, respondidas, sem resposta, resposta típica, primeira resposta humana e humano no prazo. À direita, a cobertura da medição: de quantas conversas o número saiu — porque uma mediana sem base é conversa."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Qualidade · /tv/comercial/qualidade · “O atendimento está bom?”</p>
+          <h2 class="display display--sm" data-split>A régua da semana, <em>com a base de cada número.</em></h2>
+          <div class="tv-wrap tv-wrap--stack">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/qualidade · 7 dias</span><span class="live"><i></i>1 leitura/min</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/qualidade.webp" alt="Aba Qualidade do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 17.62%">1</span>
+                  <span class="pin pin--g" data-pin="2" style="left: 19.01%; top: 17.62%">2</span>
+                  <span class="pin pin--v" data-pin="3" style="left: 31.41%; top: 17.62%">3</span>
+                  <span class="pin" data-pin="4" style="left: 43.8%; top: 17.62%">4</span>
+                  <span class="pin pin--a" data-pin="5" style="left: 56.2%; top: 17.62%">5</span>
+                  <span class="pin pin--v" data-pin="6" style="left: 68.59%; top: 17.62%">6</span>
+                  <span class="pin" data-pin="7" style="left: 80.99%; top: 17.62%">7</span>
+                  <span class="pin" data-pin="8" style="left: 93.39%; top: 17.62%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 9%; top: 28%">9</span>
+                  <span class="pin pin--g" data-pin="10" style="left: 41%; top: 28%">10</span>
+                  <span class="pin pin--g" data-pin="11" style="left: 74%; top: 28%">11</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Conversas</b><p>Quantas se mexeram no período (o dia de uma conversa é o dia em que ela se mexeu).</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--g">2</span><div><b>Respondidas</b><p>% com alguma resposta. A IA conta como resposta.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--v">3</span><div><b>Sem resposta nenhuma</b><p>Ninguém respondeu, nem a IA.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Resposta típica</b><p>Mediana até a primeira resposta (IA ou gente); p90 = casos demorados.</p></div></li>
+              <li data-pin="5"><span class="legend__n legend__n--a">5</span><div><b>1ª resposta humana</b><p>Mediana e p90 até uma pessoa responder, e de quantas conversas o número saiu.</p></div></li>
+              <li data-pin="6"><span class="legend__n legend__n--v">6</span><div><b>Humano no prazo</b><p>% das primeiras respostas humanas dentro do alvo (5 min).</p></div></li>
+              <li data-pin="7"><span class="legend__n">7</span><div><b>Satisfação</b><p>Nota da pesquisa do DNIA, quando existe avaliação.</p></div></li>
+              <li data-pin="8"><span class="legend__n">8</span><div><b>Começamos nós</b><p>Conversas iniciadas pela empresa: ativo, sem tempo de resposta a medir.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>Atendimento iniciado pela IA</b><p>Iniciados, % que chegam a um vendedor, repasses formais, espera pelo humano, sem responsável e ainda sem resposta.</p></div></li>
+              <li data-pin="10"><span class="legend__n legend__n--g">10</span><div><b>Conversas no CRM</b><p>O que o CRM registra de conversa: iniciadas, com resposta, 1ª resposta típica, mensagens.</p></div></li>
+              <li data-pin="11"><span class="legend__n legend__n--g">11</span><div><b>Cobertura da medição</b><p>Com tempo medido, começamos nós, sem resposta: a partição exata das conversas. Nenhuma mediana sem base.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 23 · RESULTADOS ===== -->
+      <section
+        class="slide"
+        data-title="Resultados"
+        data-chapter="As abas"
+        data-fx="bars"
+        data-fx-dim="1"
+        data-notes="João. Quanto está sendo vendido. Leads, vendas confirmadas, produção, ticket, conversão, fechamento, ciclo e meta — com a variação contra o período anterior. Vendas por vendedor, origem dos leads e os anúncios que trouxeram conversa. Setembro: 106 leads, 3 vendas, R$ 3.507."
+      >
+        <div class="slide-inner" data-pins>
+          <p class="eyebrow" data-r>Resultados · /tv/comercial/resultados · “Quanto está sendo vendido?”</p>
+          <h2 class="display display--sm" data-split>O mês <em>em vendas, origem e ritmo.</em></h2>
+          <div class="tv-wrap tv-wrap--stack">
+            <div class="tv" data-r>
+              <div class="tv__bar"><span>/tv/comercial/resultados · este mês</span><span class="live"><i></i>1 leitura/min</span></div>
+              <div class="tv__screen">
+                <img src="assets/telas/resultados.webp" alt="Aba Resultados do painel" />
+                <div class="tv__frame" aria-hidden="true">
+                  <span class="pin" data-pin="1" style="left: 6.61%; top: 17.62%">1</span>
+                  <span class="pin pin--g" data-pin="2" style="left: 19.01%; top: 17.62%">2</span>
+                  <span class="pin pin--g" data-pin="3" style="left: 31.41%; top: 17.62%">3</span>
+                  <span class="pin" data-pin="4" style="left: 43.8%; top: 17.62%">4</span>
+                  <span class="pin" data-pin="5" style="left: 62%; top: 17.62%">5</span>
+                  <span class="pin" data-pin="6" style="left: 80.99%; top: 17.62%">6</span>
+                  <span class="pin pin--a" data-pin="7" style="left: 93.39%; top: 17.62%">7</span>
+                  <span class="pin pin--g" data-pin="8" style="left: 9%; top: 28%">8</span>
+                  <span class="pin pin--g" data-pin="9" style="left: 9%; top: 59%">9</span>
+                  <span class="pin pin--g" data-pin="10" style="left: 50%; top: 28%">10</span>
+                  <span class="pin pin--g" data-pin="11" style="left: 50%; top: 48%">11</span>
+                  <span class="pin pin--g" data-pin="12" style="left: 80%; top: 28%">12</span>
+                </div>
+              </div>
+            </div>
+            <ol class="legend" data-r>
+              <li data-pin="1"><span class="legend__n">1</span><div><b>Leads</b><p>Criados no período, com variação contra o anterior.</p></div></li>
+              <li data-pin="2"><span class="legend__n legend__n--g">2</span><div><b>Vendas confirmadas</b><p>Ganhos no período.</p></div></li>
+              <li data-pin="3"><span class="legend__n legend__n--g">3</span><div><b>Produção</b><p>Valor das vendas confirmadas.</p></div></li>
+              <li data-pin="4"><span class="legend__n">4</span><div><b>Ticket médio</b><p>Valor estimado por lead.</p></div></li>
+              <li data-pin="5"><span class="legend__n">5</span><div><b>Conversão · fechamento</b><p>Convertidos ÷ criados; ganhos ÷ (ganhos + perdidos).</p></div></li>
+              <li data-pin="6"><span class="legend__n">6</span><div><b>Ciclo de venda</b><p>Dias da criação até a venda.</p></div></li>
+              <li data-pin="7"><span class="legend__n legend__n--a">7</span><div><b>Meta</b><p>Atingimento da meta do mês cadastrada no CRM. Hoje sem meta.</p></div></li>
+              <li data-pin="8"><span class="legend__n legend__n--g">8</span><div><b>Leads e vendas por dia</b><p>Linha do período.</p></div></li>
+              <li data-pin="9"><span class="legend__n legend__n--g">9</span><div><b>Vendas por vendedor</b><p>Quem vendeu, quanto e a conversão de cada um.</p></div></li>
+              <li data-pin="10"><span class="legend__n legend__n--g">10</span><div><b>Origem dos leads</b><p>Por origem do CRM: leads, vendas e conversão.</p></div></li>
+              <li data-pin="11"><span class="legend__n legend__n--g">11</span><div><b>Anúncios que trouxeram conversa</b><p>Do DNIA: qual anúncio gerou cada conversa.</p></div></li>
+              <li data-pin="12"><span class="legend__n legend__n--g">12</span><div><b>Cotações e propostas · WhatsApp</b><p>Cotações, propostas, aceitas e taxa de aceite; novas, se mexeram, encerradas e sem resposta.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 24 · DIVISOR 05 ===== -->
+      <section
+        class="slide slide--chapter"
+        data-title="Capítulo 05 · Como vamos usar"
+        data-chapter="Como vamos usar"
+        data-fx="clock"
+        data-notes="Transição. Agora é com o time: o painel só mede. Quem muda o número é a gente."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <span class="chapter__num">05</span>
+          <div>
+            <h2 class="chapter__title" data-split>Como vamos usar</h2>
+            <p class="chapter__desc" data-r>Os combinados, a conta da espera e o acesso. O painel mede; quem muda o número é a gente.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 25 · COMBINADOS ===== -->
+      <section
+        class="slide slide--light"
+        data-title="Os combinados"
+        data-chapter="Como vamos usar"
+        data-fx="clock"
+        data-fx-dim="1"
+        data-fx-scale="0.7"
+        data-fx-off="0.5"
+        data-notes="João. Proposta para fechar hoje, item a item. Se algum não fizer sentido, ajuste na hora — é melhor um combinado menor que todo mundo cumpre do que um bonito que ninguém segue. Anote quem ficou responsável por cadastrar a meta no CRM."
+      >
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Proposta · fechamos hoje</p>
+          <h2 class="display" data-split>Oito combinados <em>para a parede valer.</em></h2>
+          <ol class="combos">
+            <li data-r><div><b>Primeira resposta humana em até 5 minutos no expediente.</b><span>É o alvo da fila. A IA responde antes, mas o cliente foi prometido a uma pessoa.</span></div></li>
+            <li data-r><div><b>Repasse da IA é bastão: quem foi chamado assume na hora.</b><span>“Esperando vendedor” é o número que tem que ficar em zero.</span></div></li>
+            <li data-r><div><b>Largada é para ligar, não para esperar mensagem.</b><span>A janela do WhatsApp fechou. Distribuir ou assumir, e ligar.</span></div></li>
+            <li data-r><div><b>Fora do prazo: a gestão redistribui na hora.</b><span>A lista já diz “distribuir ou assumir”. Ninguém fica vermelho por mais de uma rodada.</span></div></li>
+            <li data-r><div><b>Retorno agendado no CRM é compromisso do dia.</b><span>Zerar “retornos atrasados” antes do almoço.</span></div></li>
+            <li data-r><div><b>Todo lead com responsável no CRM.</b><span>“Sem responsável” é zero, sempre.</span></div></li>
+            <li data-r><div><b>Meta cadastrada no CRM e TV ligada com sirene no pico.</b><span>Hoje a meta está vazia — o painel não inventa número.</span></div></li>
+            <li data-r><div><b>Revisão semanal das abas Qualidade e Resultados.</b><span>Segunda-feira, 15 minutos, com a régua na tela.</span></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== 26 · A CONTA DA ESPERA ===== -->
+      <section
+        class="slide"
+        data-title="A conta da espera"
+        data-chapter="Como vamos usar"
+        data-fx="clock"
+        data-fx-dim="1"
+        data-fx-scale="0.55"
+        data-fx-off="0.72"
+        data-notes="Cauê. Mexa nos controles com o time olhando. Só aritmética: conversas por dia, parte que chega a um vendedor, espera média. Sai em horas de cliente esperando por dia e por mês, contra o mesmo volume atendido em 5 minutos. Sem promessa de venda — é só o tamanho do intervalo. Com o foco num controle, as setas ajustam o valor."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="slide-inner" data-sim>
+          <p class="eyebrow" data-r>Momento da conta</p>
+          <h2 class="display display--sm" data-split>Quantas horas de cliente esperando <em>cabem num dia?</em></h2>
+          <div class="sim">
+            <div class="sim__controls">
+              <div class="sim__row" data-r>
+                <label for="s-conversas">Conversas novas por dia <output data-sim-out="conversas">32</output></label>
+                <input id="s-conversas" type="range" min="5" max="120" step="1" value="32" data-sim-in="conversas" />
+              </div>
+              <div class="sim__row" data-r>
+                <label for="s-parte">Parte que chega a um vendedor <output data-sim-out="parte">97%</output></label>
+                <input id="s-parte" type="range" min="10" max="100" step="1" value="97" data-sim-in="parte" />
+              </div>
+              <div class="sim__row" data-r>
+                <label for="s-espera">Espera média pela primeira resposta humana <output data-sim-out="espera">42 min</output></label>
+                <input id="s-espera" type="range" min="1" max="180" step="1" value="42" data-sim-in="espera" />
+              </div>
+              <p class="formula" data-r>conversas × parte = chegam a um vendedor · chegam × espera = horas de espera por dia · × 22 dias úteis = por mês</p>
+            </div>
+            <div class="sim__out" data-r>
+              <div class="sim__line">
+                <span>Chegam a um vendedor por dia</span>
+                <b data-sim-out="chegam">31,0</b>
+              </div>
+              <div class="sim__line">
+                <span>Hoje · horas de cliente esperando por dia</span>
+                <b class="c-vermelho" data-sim-out="hoje">0 h</b>
+                <div class="sim__bar"><i data-sim-bar="a"></i></div>
+              </div>
+              <div class="sim__line">
+                <span>No alvo de 5 min · por dia</span>
+                <b class="c-verde" data-sim-out="alvo">0 h</b>
+                <div class="sim__bar sim__bar--alvo"><i data-sim-bar="b"></i></div>
+              </div>
+              <div class="sim__line">
+                <span>Por mês · hoje × alvo</span>
+                <b><span data-sim-out="hojeMes">0 h</span> <span class="c-ciano">→</span> <span data-sim-out="alvoMes">0 h</span></b>
+              </div>
+              <div class="sim__delta">
+                <span>Horas de espera a menos por mês</span>
+                <b data-sim-out="ganho">0 h</b>
+              </div>
+            </div>
+          </div>
+          <p class="note" data-r>Valores iniciais são os da régua nos últimos 7 dias (≈32 conversas/dia, 97% chegam a um vendedor, 42 min de mediana). Nenhuma conversão embutida: é o tamanho do intervalo, só isso.</p>
+        </div>
+      </section>
+
+      <!-- ===== 27 · ACESSO ===== -->
+      <section
+        class="slide"
+        data-title="Acesso e atalhos"
+        data-chapter="Como vamos usar"
+        data-fx="wall"
+        data-fx-scale="0.85"
+        data-fx-off="-0.44"
+        data-notes="Cauê. Endereço único, senha única da equipe (peça ao Cauê ou ao João, não vai no slide). Na TV fica a aba Ao vivo com a sirene ligada; no computador, as abas. Conversas é a auditoria conversa a conversa; Análise é o histórico; Metas é onde se ajusta o alvo da fila."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="glow glow--ciano" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Acesso</p>
+          <h2 class="display display--sm" data-split>Um endereço, <em>uma senha da equipe.</em></h2>
+          <div class="acesso">
+            <div>
+              <a class="url" data-r href="https://plano-a-painel.vercel.app/tv/comercial" target="_blank" rel="noreferrer">plano-a-painel.vercel.app</a>
+              <ul class="rotas">
+                <li data-r>/tv/comercial <span>Ao vivo — a tela da TV, sirene no canto</span></li>
+                <li data-r>/tv/comercial/redecorr <span>Só o CRM redeCORR</span></li>
+                <li data-r>/tv/comercial/dnia <span>Só o DNIA Sales</span></li>
+                <li data-r>/tv/comercial/vendedores <span>Como está cada pessoa</span></li>
+                <li data-r>/tv/comercial/funil · /follow-up <span>Onde para · o que está sem continuidade</span></li>
+                <li data-r>/tv/comercial/qualidade · /resultados <span>A régua da semana · o mês em vendas</span></li>
+                <li data-r>/conversas · /analise · /config <span>Auditoria conversa a conversa · histórico · metas da fila</span></li>
+              </ul>
+            </div>
+            <div>
+              <ul class="keys" data-r>
+                <li><kbd>Hoje · 7 dias · 30 dias · Este mês</kbd> período em toda aba</li>
+                <li><kbd>clique no número</kbd> abre a lista; na linha, abre a conversa</li>
+                <li><kbd>Sirene</kbd> ligar na TV: toca enquanto houver alarme</li>
+                <li><kbd>selo DNIA · CRM</kbd> há quanto tempo cada fonte confirmou</li>
+                <li><kbd>faixa amarela</kbd> fonte parada — desconfie do número</li>
+              </ul>
+              <p class="note" data-r>A senha não vai no slide nem no grupo. Quem precisar, pede ao Cauê ou ao João. O painel só lê o DNIA e o CRM — ninguém atende por ele.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 28 · ENCERRAMENTO ===== -->
+      <section
+        class="slide"
+        data-title="Fechamento"
+        data-chapter="Como vamos usar"
+        data-fx="burst"
+        data-fx-scale="0.95"
+        data-notes="João fecha. Repita a frase. Três compromissos saindo da sala: meta cadastrada no CRM hoje, combinados fechados e a TV ligada com a sirene. Marque a revisão de segunda."
+      >
+        <div class="scan" aria-hidden="true"></div>
+        <div class="glow glow--laranja" aria-hidden="true"></div>
+        <div class="slide-inner">
+          <p class="eyebrow" data-r>Saindo daqui</p>
+          <h2 class="display display--xl" data-split>Ninguém espera <em>sem que a parede saiba.</em></h2>
+          <div class="cards cards--3">
+            <article class="card" data-r><span class="card__k">hoje</span><h3>Meta cadastrada no CRM</h3><p>Sem ela o painel mostra “—”. Com ela, mostra quanto falta e o ritmo por dia útil.</p></article>
+            <article class="card" data-r><span class="card__k">hoje</span><h3>Combinados fechados</h3><p>Os oito da lista, ajustados pelo time. O que ficar combinado vira a régua.</p></article>
+            <article class="card card--ciano" data-r><span class="card__k">agora</span><h3>TV ligada, sirene no pico</h3><p>A parede na sala do comercial, aba Ao vivo, o dia inteiro.</p></article>
+          </div>
+          <div class="close-logos" data-r>
+            <img class="planoa" src="assets/planoa.png" alt="Plano A" />
+            <span class="plus">×</span>
+            <img src="assets/dnia.png" alt="DNIA Sales" />
+            <span class="plus">×</span>
+            <img src="assets/redecorr.png" alt="redeCORR" />
+          </div>
+          <p class="hint" data-r>Painel do Comercial · Plano A · setembro de 2026</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ ÍNDICE ============ -->
+    <div class="index-overlay" data-index hidden>
+      <div class="index-panel" role="dialog" aria-label="Índice da apresentação">
+        <div class="index-head">
+          <span class="index-title">Índice</span>
+          <button class="index-close" type="button" data-index-close aria-label="Fechar índice">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+          </button>
+        </div>
+        <div class="index-list" data-index-list></div>
+      </div>
+    </div>
+
+    <!-- ============ MODO APRESENTADOR (tecla P) ============ -->
+    <aside class="presenter" data-presenter hidden aria-label="Painel do apresentador">
+      <div class="presenter__bar">
+        <span class="presenter__tag">Modo apresentador</span>
+        <span class="presenter__clock" data-p-time>00:00</span>
+        <button class="presenter__btn" type="button" data-p-reset>Zerar tempo</button>
+        <button class="presenter__btn" type="button" data-p-close>Fechar (P)</button>
+      </div>
+      <div class="presenter__grid">
+        <div>
+          <span class="presenter__lbl" data-p-chapter></span>
+          <p class="presenter__now" data-p-now></p>
+          <p class="presenter__notes" data-p-notes></p>
+        </div>
+        <div class="presenter__next">
+          <span class="presenter__lbl">A seguir</span>
+          <p data-p-next></p>
+        </div>
+      </div>
+    </aside>
+
+    <button class="nav-button nav-button--prev" type="button" aria-label="Slide anterior" data-prev>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" /></svg>
+    </button>
+    <button class="nav-button nav-button--next" type="button" aria-label="Próximo slide" data-next>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+    </button>
+
+    <footer class="hud hud--bottom">
+      <div class="slide-count"><span data-current>01</span> / <span data-total>28</span></div>
+      <div class="segs" data-segs role="tablist" aria-label="Slides"></div>
+      <div class="progress" aria-hidden="true"><span data-progress></span></div>
+    </footer>
+
+    <!-- Bibliotecas do próprio repositório: a apresentação roda sem internet. -->
+    <script src="vendor/gsap.min.js"></script>
+    <script src="app.js"></script>
+    <script type="module" src="fx.js"></script>
+  </body>
+</html>
