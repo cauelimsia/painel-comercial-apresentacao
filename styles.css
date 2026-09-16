@@ -160,6 +160,17 @@ body.presenting #fx {
   display: block;
 }
 
+/* As quatro casas do grupo, lado a lado, com a mesma presença. */
+.brand__logos {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand__logos img { height: 0.95rem; opacity: 0.92; }
+.brand__logos img.l-planoa { height: 1.5rem; }
+.brand__logos img.l-topprime { height: 1.05rem; }
+
 .theme-light .brand img {
   filter: invert(1) hue-rotate(180deg) brightness(0.3);
 }
@@ -639,8 +650,9 @@ body.presenting .deck {
 
 .cover-top {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
   margin-bottom: 2rem;
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -649,9 +661,25 @@ body.presenting .deck {
   color: var(--texto-3);
 }
 
-.cover-top img {
-  height: 2.4rem;
+.cover-logos {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.cover-logos img {
+  height: 1.55rem;
   width: auto;
+  opacity: 0.95;
+}
+
+.cover-logos img.l-planoa { height: 2.7rem; }
+.cover-logos img.l-topprime { height: 1.7rem; }
+
+.cover-logos i {
+  width: 1px;
+  height: 1.6rem;
+  background: var(--linha-forte);
 }
 
 .cover-sub {
@@ -1575,9 +1603,8 @@ kbd {
   opacity: 0.9;
 }
 
-.close-logos img.planoa {
-  height: 2.2rem;
-}
+.close-logos img.l-planoa { height: 2.2rem; }
+.close-logos img.l-topprime { height: 1.65rem; }
 
 .close-logos .plus {
   font-family: var(--font-mono);

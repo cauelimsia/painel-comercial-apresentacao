@@ -1,6 +1,6 @@
 # Painel do Comercial — apresentação para a equipe
 
-Deck web da apresentação do painel de vendas da Administradora Plano A para a
+Deck web da apresentação do painel de vendas do grupo (Plano A, Top Prime, redeCORR e DNIA Sales) para a
 equipe comercial (16/09/2026). Explica, número a número, o que a parede mostra,
 de onde cada número vem e o que fazer com ele.
 
