@@ -160,16 +160,6 @@ body.presenting #fx {
   display: block;
 }
 
-/* As quatro casas do grupo, lado a lado, com a mesma presença. */
-.brand__logos {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.brand__logos img { height: 0.95rem; opacity: 0.92; }
-.brand__logos img.l-planoa { height: 1.5rem; }
-.brand__logos img.l-topprime { height: 1.05rem; }
 
 .theme-light .brand img {
   filter: invert(1) hue-rotate(180deg) brightness(0.3);
@@ -652,8 +642,8 @@ body.presenting .deck {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.1rem;
-  margin-bottom: 2rem;
+  gap: 1.4rem;
+  margin-bottom: 2.2rem;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.16em;
@@ -661,26 +651,35 @@ body.presenting .deck {
   color: var(--texto-3);
 }
 
-.cover-logos {
+/* Marcas do grupo: uma célula por casa, mesma largura e altura, logo centrada. */
+.logos {
   display: flex;
-  align-items: center;
-  gap: 1.1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.cover-logos img {
-  height: 1.55rem;
+.logos__cell {
+  display: grid;
+  place-items: center;
+  width: 10.5rem;
+  height: 4rem;
+  border: 1px solid var(--linha);
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.logos__cell img {
+  height: 1.45rem;
   width: auto;
+  display: block;
   opacity: 0.95;
 }
 
-.cover-logos img.l-planoa { height: 2.7rem; }
-.cover-logos img.l-topprime { height: 1.7rem; }
+.logos__cell img.l-planoa { height: 2.3rem; }
+.logos__cell img.l-topprime { height: 1.6rem; }
+.logos__cell img.l-dnia { height: 1.35rem; }
 
-.cover-logos i {
-  width: 1px;
-  height: 1.6rem;
-  background: var(--linha-forte);
-}
+.logos--close { margin-top: 2.2rem; }
 
 .cover-sub {
   font-size: 1.25rem;
@@ -1590,26 +1589,6 @@ kbd {
 
 /* ---------- encerramento ---------- */
 
-.close-logos {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  margin-top: 2.2rem;
-}
-
-.close-logos img {
-  height: 1.5rem;
-  width: auto;
-  opacity: 0.9;
-}
-
-.close-logos img.l-planoa { height: 2.2rem; }
-.close-logos img.l-topprime { height: 1.65rem; }
-
-.close-logos .plus {
-  font-family: var(--font-mono);
-  color: var(--texto-3);
-}
 
 /* ============ ÍNDICE ============ */
 
